@@ -1,4 +1,28 @@
 .app {
+  display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+
+}
+
+.carsIndex{
+  margin: 5px;
+  border: 2px solid blue;
+  display:flex;
+}
+
+.sidebox{
+  border: 2px solid red;
+  margin: 5px;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cargarge{
+  width:20%;
+  height: 60%;
+
 }
