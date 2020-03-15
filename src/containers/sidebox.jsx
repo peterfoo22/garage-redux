@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {
-  Link
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
 } from "react-router-dom";
-import createCar from "../components/createcar"
 
-class SideBox extends Component{
+import NewCarForm from "../components/createcar";
 
-  constructor(props){
-    super(props)
-  }
+class SideBox extends Component {
+  render(){
+    return (
+      <Router>
+        <div className="sidebox">
+          <img src={'http://placehold.it/800x200&text=slide1'} alt="boohoo" className="img-sidebox" />
+          Our Garage is the Best Kept Secret in Town
+          <Link to="/CreateCar">
+            Create a New Car
+          </Link>
 
-    render(){
-      return(
-        <div className = "sidebox">
-           <img src={'http://placehold.it/800x200&text=slide1'} alt="boohoo" className="img-sidebox"/>
-           Our Garage is the Best Kept Secret in Town
-           <Link to = "/createcar"> Create New Car </Link>
+          <Switch>
+            <Route path={"/CreateCar"} component={NewCarForm} />
+          </Switch>
         </div>
 
-      )
-    }
-}
+      </Router>
 
 
+    );
+  }
+};
 
-export default SideBox
+
+export default SideBox;
+
