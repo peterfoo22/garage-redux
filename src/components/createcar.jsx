@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
 import SideBox from "../containers/sidebox"
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { createCar } from '../actions/index';
+import  {createCar}  from '../actions/index';
 
 
 class NewCarForm extends Component {
@@ -22,9 +21,6 @@ class NewCarForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-  }
-
 
   handleChange(event) {
     if (event.target.name === "theModel") {
@@ -38,8 +34,7 @@ class NewCarForm extends Component {
     }
   }
 
-  handleSubmit() {
-    event.preventDefault();
+  handleSubmit(event) {
     this.props.createCar(this.state.brand, this.state.model, this.state.owner, this.state.plate);
     this.setState({ model: '', brand: '', owner: '', plate: ' '}); // Reset message input
   }

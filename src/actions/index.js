@@ -5,8 +5,9 @@ export const CAR_CREATED = "CAR_CREATED";
 export const GET_CARS = 'GET_CARS';
 
 
+const url = "https://wagon-garage-api.herokuapp.com/:mygarage/cars";
+
 export function createCar(brand, model, owner, plate) {
-  const url = "https://wagon-garage-api.herokuapp.com/:mygarage/cars";
   const ourCar = { brand, model, owner, plate };
   const promise = fetch(url, {
     method: 'POST',
@@ -14,20 +15,21 @@ export function createCar(brand, model, owner, plate) {
       "Content-type": "application/json"
     },
     body: JSON.stringify(ourCar)
-  });
+  }).then(r => r.json());
 
   return {
-    type: CAR_CREATED,
+    type: "CAR_CREATED",
     payload: promise // Will be resolved by redux-promise
   };
 }
 
 
-export function getCars() {
-  const url = fetch("https://wagon-garage-api.herokuapp.com/:mygarage/cars");
-  fetchPromise.then(response => {
-    return response.json();
-  }).then(data => {
-    console.log(data);
-  });
+export function carsGet() {
+  const promise = fetch(url)
+    .then(r => r.json());
+
+  return {
+    type: 'GET_CARS',
+    payload: promise // Will be resolved by redux-promise
+  };
 }
