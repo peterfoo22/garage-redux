@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import  {createCar}  from '../actions/index';
 
 
-class NewCarForm extends Component {
+class createCarForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,4 +69,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createCar }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(NewCarForm);
+export default connect(null, mapDispatchToProps)(createCarForm);

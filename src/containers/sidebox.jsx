@@ -7,21 +7,21 @@ import {
   Link,
 } from "react-router-dom";
 
-import NewCarForm from "../components/createcar";
+import createCarForm from "../components/createcar";
 
 class SideBox extends Component {
-  render(){
+  render() {
     return (
       <Router>
         <div className="sidebox">
           <img src={'http://placehold.it/800x200&text=slide1'} alt="boohoo" className="img-sidebox" />
           Our Garage is the Best Kept Secret in Town
           <Link to="/CreateCar">
-            Create a New Car
+            Create a New Ca
           </Link>
 
           <Switch>
-            <Route path={"/CreateCar"} component={NewCarForm} />
+            <Route path={"/CreateCar"} component={createCarForm} />
           </Switch>
         </div>
 
