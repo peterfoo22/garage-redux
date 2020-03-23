@@ -8,16 +8,18 @@ const intialState = [
 ];
 
 export default function (state = [], action) {
-
-  switch (action.type){
+  switch (action.type) {
 
     case 'GET_CARS': {
-      return action.payload
+      return action.payload;
     }
     case 'CAR_CREATED': {
       const copiedState = state;
       copiedState.push(action.payload);
       return copiedState;
+    }
+    case 'SHOWTHECAR': {
+      return action.payload
     }
     default:
       return state;

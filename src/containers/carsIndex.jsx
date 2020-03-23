@@ -29,7 +29,7 @@ class CarsIndex extends Component {
           owner={car.owner}
           plate={car.plate}
         />,
-        <Link to={`cars/${car.id}`}>See This Car</Link>
+        <Link to={`/cars/${car.id}`} id={car.id}>Car Details </Link>
       ]
       );
     }
