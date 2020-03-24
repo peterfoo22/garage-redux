@@ -9,22 +9,32 @@ import { bindActionCreators } from 'redux';
 class carShow extends Component {
   constructor(props) {
     super(props)
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
     const id = this.props.match.params.id
     this.props.showtheCar(id)
-    console.log(this.props)
+  }
+
+  handleClick() {
+    const id = this.props.match.params.id
+    this.props.deleteCar(id)
   }
 
   render() {
-    return(
-      [<SideBox />,
-        <div>{this.props.cars.brand}, {this.props.cars.model},
-          {this.props.cars.owner}, {this.props.cars.plate}</div>,
-        <button>Delete Me</button>
-      ]
-    );
+    // returns the car if there is a car present
+    if (this.props.cars) {
+      return (
+        [<SideBox />,
+          <div>{this.props.cars.brand}, {this.props.cars.model},
+            {this.props.cars.owner}, {this.props.cars.plate}</div>,
+          <button onClick={this.handleClick}>Delete Me</button>
+        ]
+      );
+    }
+    return ([<SideBox />, <div>No Record of This Car</div>])
   }
 }
 

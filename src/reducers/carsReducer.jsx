@@ -1,4 +1,4 @@
-import { CAR_CREATED, GET_CARS} from '../actions'
+import { CAR_CREATED, GET_CARS} from '../actions';
 
 const intialState = [
   { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
@@ -9,7 +9,6 @@ const intialState = [
 
 export default function (state = [], action) {
   switch (action.type) {
-
     case 'GET_CARS': {
       return action.payload;
     }
@@ -19,7 +18,10 @@ export default function (state = [], action) {
       return copiedState;
     }
     case 'SHOWTHECAR': {
-      return action.payload
+      return action.payload;
+    }
+    case 'DELETECAR': {
+      return state;
     }
     default:
       return state;

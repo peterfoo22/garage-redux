@@ -4,6 +4,7 @@
 export const CAR_CREATED = "CAR_CREATED";
 export const GET_CARS = 'GET_CARS';
 export const SHOWTHECAR = 'SHOWTHECAR';
+export const DELETECAR = 'DELETECAR'
 
 const url = "https://wagon-garage-api.herokuapp.com/:mygarage/cars";
 
@@ -26,8 +27,7 @@ export function createCar(brand, model, owner, plate) {
 export function deleteCar(carID) {
   const newurl = `https://wagon-garage-api.herokuapp.com/cars/${carID}`;
   const promise = fetch(newurl, { method: 'DELETE' })
-    .then(r => r.json())
-    .then(() => history.push(""));
+    .then(r => r.json());
   return {
     type: "DELETECAR",
     payload: promise
